@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>MiniGiochi Gratis</title>
+
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #0d0d0d;
+            overflow: hidden;
             color: #fff;
+        }
+
+        /* PARTICELLE ANIMATE */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -150px;
+            width: 10px;
+            height: 10px;
+            background: #00ffc8;
+            border-radius: 50%;
+            animation: float 10s linear infinite;
+            opacity: 0.7;
         }
 
         header {
@@ -16,6 +35,8 @@
             padding: 20px;
             text-align: center;
             border-bottom: 2px solid #00ffc8;
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
@@ -29,6 +50,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 30px;
+            position: relative;
+            z-index: 10;
         }
 
         .game-card {
@@ -76,7 +99,15 @@
         }
     </style>
 </head>
+
 <body>
+
+<!-- PARTICELLE -->
+<div class="particle" style="left:10%; animation-duration:12s;"></div>
+<div class="particle" style="left:30%; animation-duration:8s;"></div>
+<div class="particle" style="left:50%; animation-duration:14s;"></div>
+<div class="particle" style="left:70%; animation-duration:10s;"></div>
+<div class="particle" style="left:90%; animation-duration:9s;"></div>
 
 <header>
     <h1>MiniGiochi Gratis</h1>
@@ -85,18 +116,18 @@
 
 <div class="container">
 
- <div class="game-card">
-    <img class="game-img" src="https://img.gamemonetize.com/wt2gtbv3n0gln7se0yl8dxu31ms1vrj4/512x384.jpg" alt="Drifty Race Challenge">
-    <div class="game-title">Drifty Race Challenge</div>
-    <a class="play-btn" href="gioco1.html">Gioca Ora</a>
-</div>
-    
-<div class="game-card">
-    <img class="game-img" src="https://img.gamemonetize.com/r2p29ic8mhojcaltmw725k50uce65qku/512x384.jpg" alt="Parking Skill Game">
-    <div class="game-title">Parking Skill Game</div>
-    <a class="play-btn" href="gioco2.html">Gioca Ora</a>
-</div>
-    
+    <div class="game-card">
+        <img class="game-img" src="https://img.gamemonetize.com/wt2gtbv3n0gln7se0yl8dxu31ms1vrj4/512x384.jpg" alt="Drifty Race Challenge">
+        <div class="game-title">Drifty Race Challenge</div>
+        <a class="play-btn" href="gioco1.html">Gioca Ora</a>
+    </div>
+
+    <div class="game-card">
+        <img class="game-img" src="https://img.gamemonetize.com/r2p29ic8mhojcaltmw725k50uce65qku/512x384.jpg" alt="Parking Skill Game">
+        <div class="game-title">Parking Skill Game</div>
+        <a class="play-btn" href="gioco2.html">Gioca Ora</a>
+    </div>
+
 </div>
 
 </body>
