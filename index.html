@@ -1,29 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <title>MiniGiochi Gratis</title>
     <style>
-        body { font-family: Arial; background: #111; color: #fff; text-align: center; }
-        .game-box { background: #222; padding: 20px; margin: 20px auto; width: 300px; border-radius: 10px; }
-        a { color: #00ffcc; text-decoration: none; font-size: 20px; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+        }
+
+        header {
+            background: #111;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00ffc8;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #00ffc8;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .game-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #222;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            border-color: #00ffc8;
+            box-shadow: 0 0 15px #00ffc8;
+        }
+
+        .game-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ffc8;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00ffc8;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            background: #00e6b4;
+        }
     </style>
 </head>
 <body>
 
-<h1>MiniGiochi Gratis</h1>
-<p>Gioca subito senza scaricare nulla!</p>
+<header>
+    <h1>MiniGiochi Gratis</h1>
+    <p>Gioca subito senza scaricare nulla!</p>
+</header>
 
-<div class="game-box">
-    <h2>Gioco 1</h2>
-    <a href="gioco1.html">Gioca ora</a>
-</div>
+<div class="container">
 
-<div class="game-box">
-    <h2>Gioco 2</h2>
-    <a href="gioco2.html">Gioca ora</a>
+    <div class="game-card">
+        <div class="game-title">Gioco 1</div>
+        <a class="play-btn" href="gioco1.html">Gioca Ora</a>
+    </div>
+
+    <div class="game-card">
+        <div class="game-title">Gioco 2</div>
+        <a class="play-btn" href="gioco2.html">Gioca Ora</a>
+    </div>
+
+    <div class="game-card">
+        <div class="game-title">Gioco 3</div>
+        <a class="play-btn" href="#">In Arrivo</a>
+    </div>
+
 </div>
 
 </body>
 </html>
-<!-- aggiornamento -->
