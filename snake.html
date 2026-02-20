@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Snake Game</title>
+<style>
+    body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    canvas {
+        background: #111;
+        border: 3px solid #0f0;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="game" width="400" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+let box = 20;
+let snake = [{ x: 9 * box, y: 9 * box }];
+let direction = "RIGHT";
+
+let food = {
+    x: Math.floor(Math.random() * 20) * box,
+    y: Math.floor(Math.random() * 20) * box
+};
+
+document.addEventListener("keydown", event => {
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+});
+
+function draw() {
+    ctx.clearRect(0, 0, 400, 400);
+
+    // Cibo
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x, food.y, box, box);
+
+    // Serpente
+    ctx.fillStyle = "lime";
+    snake.forEach(part => ctx.fillRect(part.x, part.y, box, box));
+
+    // Movimento
+    let head = { ...snake[0] };
+
+    if (direction === "LEFT") head.x -= box;
+    if (direction === "UP") head.y -= box;
+    if (direction === "RIGHT") head.x += box;
+    if (direction === "DOWN") head.y += box;
+
+    // Collisione con muri
+    if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
+        alert("Game Over!");
+        document.location.reload();
+    }
+
+    // Collisione con se stesso
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+            alert("Game Over!");
+            document.location.reload();
+        }
+    }
+
+    // Mangia il cibo
+    if (head.x === food.x && head.y === food.y) {
+        food = {
+            x: Math.floor(Math.random() * 20) * box,
+            y: Math.floor(Math.random() * 20) * box
+        };
+    } else {
+        snake.pop();
+    }
+
+    snake.unshift(head);
+}
+
+setInterval(draw, 100);
+</script>
+
+</body>
+</html>
